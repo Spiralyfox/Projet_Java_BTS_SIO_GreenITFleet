@@ -17,14 +17,14 @@ public class GreenITFleet {
     public static void main(String[] args) {
         Station maStation = new Station("Centre-Ville");
 
-        Velo v1 = new Velo("E-Ride 2000");
-        Velo v2 = new Velo("Volt-Bike");
+        Velo v1 = new Velo("E-Ride 2000", 500);
+        Velo v2 = new Velo("Volt-Bike", 750);
 
         maStation.ajouterVelo(v1);
         maStation.ajouterVelo(v2);
 
         maStation.afficherEtatStation();
-        
+
         // Simulation d'une location
         v1.setEstLoue(true);
         v1.setNiveauBatterie(45);
@@ -32,9 +32,7 @@ public class GreenITFleet {
         // Simulation batterie
         v1.setNiveauBatterie(150);
         v2.setNiveauBatterie(-20);
-        
+
         maStation.afficherEtatStation();
     }
-    }
-    
-
+}

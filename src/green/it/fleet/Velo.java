@@ -11,18 +11,20 @@ package green.it.fleet;
  */
 public class Velo {
     private String modele;
-    private int niveauBatterie; 
+    private int niveauBatterie;
     private boolean estLoue;
+    private int capaciteBatterie;
 
-    public Velo(String modele) {
+    public Velo(String modele, int capaciteBatterie) {
         this.modele = modele;
-        this.niveauBatterie = 100; 
+        this.capaciteBatterie = capaciteBatterie;
+        this.niveauBatterie = 100;
         this.estLoue = false;
     }
 
     // Getters et Setters de base
     public String getModele() { return modele; }
-    
+
     public int getNiveauBatterie() { return niveauBatterie; }
 
     // Correction du problème de batterie négative / > 100
@@ -35,10 +37,15 @@ public class Velo {
     }
 
     public boolean isEstLoue() { return estLoue; }
+
     public void setEstLoue(boolean estLoue) { this.estLoue = estLoue; }
+
+    public double calculerAutonomieKm() {
+        return (capaciteBatterie * niveauBatterie / 100.0) / 5;
+    }
 
     public void afficherInfos() {
         String statut = estLoue ? "Loué" : "Disponible";
-        System.out.println("Velo " + modele + " | Batterie: " + niveauBatterie + "% | Statut: " + statut);
+        System.out.println("Velo " + modele + " | Batterie: " + niveauBatterie + "% | Autonomie: " + calculerAutonomieKm() + " km | Statut: " + statut);
     }
 }
