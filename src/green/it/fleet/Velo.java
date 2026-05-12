@@ -24,8 +24,14 @@ public class Velo {
     public String getModele() { return modele; }
     
     public int getNiveauBatterie() { return niveauBatterie; }
-    public void setNiveauBatterie(int niveauBatterie) { 
-        this.niveauBatterie = niveauBatterie; 
+
+    // Correction du problème de batterie négative / > 100
+    public void setNiveauBatterie(int niveauBatterie) {
+        if (niveauBatterie >= 0 && niveauBatterie <= 100) {
+            this.niveauBatterie = niveauBatterie;
+        } else {
+            System.out.println("Le niveau de batterie doit être compris entre 0 et 100.");
+        }
     }
 
     public boolean isEstLoue() { return estLoue; }

@@ -28,6 +28,10 @@ public class GreenITFleet {
         // Simulation d'une location
         v1.setEstLoue(true);
         v1.setNiveauBatterie(45);
+
+        // Simulation batterie
+        v1.setNiveauBatterie(150);
+        v2.setNiveauBatterie(-20);
         
         maStation.afficherEtatStation();
     }
